@@ -16,8 +16,8 @@ import (
 func doRequests() {
 	ch := make(chan bool, 3)
 	for i := 0; i < 10; i++ {
+		ch <- true
 		go func(id int) {
-			ch <- true
 			strID := strconv.Itoa(id)
 			res, err := http.PostForm("http://localhost:8080", url.Values{"key": {"Value"}, "id": {strID}})
 			if err != nil {
