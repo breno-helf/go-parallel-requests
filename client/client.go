@@ -23,7 +23,7 @@ func doRequests() {
 			if err != nil {
 				log.Fatal(err)
 			}
-			defer res.Body.Close()
+			res.Body.Close()
 			<-ch
 		}(i)
 	}
@@ -40,7 +40,7 @@ func noobRequests() {
 			if err != nil {
 				log.Fatal(err)
 			}
-			defer res.Body.Close()
+			res.Body.Close()
 		}(i)
 	}
 }
